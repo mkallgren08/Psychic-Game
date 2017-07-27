@@ -58,7 +58,16 @@ console.log(computerGuess);
 	    var userGuess = event.key.toLowerCase();
 
 	    // This builds the array of userGuesses
-	    userGuesses.push(userGuess);
+	    if (characSet.indexOf(userGuess) === -1){
+	    	console.log("Invalid character entry!")
+	    } else if (userGuesses.indexOf(userGuess) >= 0){
+	    	console.log("Repeated entry, entry ignored");
+	    	// This was the only way I could keep lives from going down on a repeated
+	    	// keystroke :/
+	    	lives++;
+	    } else {
+	    	userGuesses.push(userGuess);
+	    }
 		
 		//This prints the array as a string concatenated with a space in between characters
 		document.getElementById("guesssoFar").innerHTML = userGuesses.join(" ")
@@ -70,7 +79,6 @@ console.log(computerGuess);
 			// console.log(computerGuess);
 	    //}
 
-
 	    if (userGuess === computerGuess){ 
 			gameWinner();
 			gameReset();
@@ -81,7 +89,7 @@ console.log(computerGuess);
 			gameReset();
 		}
 
-	    else if (userGuess !== computerGuess){
+	    else if (userGuess !== computerGuess && characSet.indexOf(userGuess) > -1){
 			loseLife();
 		}
 		
