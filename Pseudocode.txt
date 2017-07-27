@@ -32,5 +32,10 @@ General Page Layout
 |                                                                            |
 -----------------------------------------------------------------------------
 
+Notes:
+ - Loss occurs when Guesses Left === 0 
+ - Must restart on own after win or loss
+ - Your Guesses So Far..... print array? List?
+
 HTML
 
